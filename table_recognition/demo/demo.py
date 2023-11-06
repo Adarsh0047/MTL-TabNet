@@ -349,7 +349,7 @@ if __name__ == '__main__':
     import sys
     import codecs
     sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
-    img_path = './table_recognition/demo/PMC1168909_005_00.png'
+    img_path = '/content/output.png'
 
     # table structure predict
     tablemaster_inference = Structure_Recognition(args.tablemaster_config, args.tablemaster_checkpoint)
@@ -357,16 +357,16 @@ if __name__ == '__main__':
     torch.cuda.empty_cache()
     del tablemaster_inference
 
-    pred_text = tablemaster_result_dict['PMC1168909_005_00.png']['text']
-    pred_cells = tablemaster_result_dict['PMC1168909_005_00.png']['cell']
+    pred_text = tablemaster_result_dict['output.png']['text']
+    pred_cells = tablemaster_result_dict['output.png']['cell']
     pred_html = insert_text_to_token(text_to_list(pred_text), pred_cells)
     pred_html = deal_bb(pred_html, 'thead')
     pred_html = deal_bb(pred_html, 'tbody')
 
     # # visualize bboxes
-    visual_pred_bboxes(tablemaster_result_dict['PMC1168909_005_00.png']['bbox'], 'PMC1168909_005_00.png', './table_recognition/demo/', './table_recognition/demo/')
+    visual_pred_bboxes(tablemaster_result_dict['output.png']['bbox'], 'output.png.png', './table_recognition/demo/', './table_recognition/demo/')
 
-    f = open(os.path.join('./table_recognition/demo/visual_pred_bboxes/', 'PMC1168909_005_00.png'.replace('.png', '.txt')), 'w')
+    f = open(os.path.join('./table_recognition/demo/visual_pred_bboxes/', 'output.png'.replace('.png', '.txt')), 'w')
     f.write(pred_html + '\n')
     f.close()
 
