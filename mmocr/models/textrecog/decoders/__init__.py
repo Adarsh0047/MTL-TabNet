@@ -6,7 +6,7 @@ from .sar_decoder import ParallelSARDecoder, SequentialSARDecoder
 from .sar_decoder_with_bs import ParallelSARDecoderWithBS
 from .sequence_attention_decoder import SequenceAttentionDecoder
 from .transformer_decoder import TFDecoder
-from .master_decoder import MasterDecoder, TableMasterDecoder, TableMasterConcatDecoder
+from .master_decoder_old20220923 import MasterDecoder, TableMasterDecoder, TableMasterConcatDecoder
 
 __all__ = [
     'CRNNDecoder', 'ParallelSARDecoder', 'SequentialSARDecoder',
