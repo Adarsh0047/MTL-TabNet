@@ -16,7 +16,7 @@ import pickle
 import numpy as np
 from tqdm import tqdm
 
-from ..table_recognition.table_inference import Structure_Recognition
+from table_recognition.table_inference import Structure_Recognition
 import re
 import copy
 
